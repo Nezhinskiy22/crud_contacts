@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
-const AddContact = ({ addContactHandler }) => {
+const AddContact = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const { addContactHandler } = props;
 
   const add = (e) => {
     e.preventDefault();
@@ -13,6 +14,8 @@ const AddContact = ({ addContactHandler }) => {
       addContactHandler(name, email);
       setName("");
       setEmail("");
+      props.history.push("/");
+      console.log(props);
     }
   };
 
